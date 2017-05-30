@@ -1,18 +1,6 @@
 import { combineReducers } from 'redux';
+import { initialState } from './ConstantsHelper';
 
-const initialState = {
-    todoItems: [
-        {
-            content: 'first item',
-            isDone: false
-        },
-        {
-            content: 'second item',
-            isDone: true
-        }
-    ],
-    shownMode: 0
-};
 const todoItems = (state = initialState.todoItems, action) => {
     switch(action.type) {
         case "AddItem":

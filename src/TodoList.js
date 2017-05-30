@@ -4,13 +4,12 @@ class TodoList extends React.Component {
     render() {
         const { state, actions } = this.props;
         const todoList = state.todoItems.map((item, index) => {
-            let styleString = 'visible';
-            if((state.shownMode === 1 && item.isDone) || (state.shownMode === 2 && !item.isDone)) {
-                styleString = 'hidden';
+            if((state.shownMode === "Todo" && item.isDone) || (state.shownMode === "Done" && !item.isDone)) {
+                return;
             }
-            return (<li style={{textDecoration: item.isDone ? 'line-through' : 'none', visibility: styleString}} 
+            return (<li style={{textDecoration: item.isDone ? 'line-through' : 'none'}} 
                         onClick={() => actions.Done(index)}>
-                        {item.content}
+                        <a href="#">{item.content}</a>
                     </li>);
         });
         return <ul>{todoList}</ul>;
