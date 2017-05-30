@@ -4,18 +4,18 @@ var webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
-    entry: { // 打包入口
+    entry: {
         index: [
             'webpack-dev-server/client?http://localhost:3000',
             'webpack/hot/only-dev-server',
             './src/index.js'
         ],
-        vendor: [  // 将react和react-dom这些单独打包出来，减小打包文件体积
+        vendor: [  // pack react and react-dom independently
             "react",
             "react-dom"
         ]
     },
-    output: { // 打包目标路径
+    output: {
         path: __dirname + "/dist/",
         filename: "js/[name].js"
     },
@@ -25,10 +25,10 @@ var config = {
             exclude: /node_modules/,
             loader: "babel-loader"
         }, {
-            test: /\.(scss|sass|css)$/,  // 打包sass和css文件
+            test: /\.(scss|sass|css)$/,  // pack sass and css files
             loader: ExtractTextPlugin.extract({fallback: "style-loader", use: "css-loader!postcss-loader!sass-loader"})
         }, {
-            test: /\.(png|jpg|jpng|eot|ttf)$/, // 打包图片和字体文件
+            test: /\.(png|jpg|jpng|eot|ttf)$/, // pack images and fonts
             loader: 'url-loader?limit=8192&name=images/[name].[ext]'
         }
         ]
@@ -39,8 +39,8 @@ var config = {
           inject: 'body',
           filename: 'index.html'
         }),
-        new webpack.optimize.CommonsChunkPlugin("js/vendor.bundle.js"), //这是之前单独打包出来的react、react-dom等文件
-        new ExtractTextPlugin("css/index.css"), // 将所有sass/css文件打包成一个index.css文件
+        new webpack.optimize.CommonsChunkPlugin("bundle/vendor.bundle.js"), //packed independently such as react and react-dom
+        new ExtractTextPlugin("css/index.css"), // pack all the sass and css files into index.csss
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
