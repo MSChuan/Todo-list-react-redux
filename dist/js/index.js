@@ -3510,7 +3510,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var AppConstants = {
-    ShownModesString: ["All", "Todo", "Done"]
+    ShownModesString: ["Show All", "Show Todo", "Show Done"]
 };
 
 var initialState = {
@@ -8387,20 +8387,12 @@ var ShownModes = function (_React$Component) {
                 actions = _props.actions;
 
             var shownModes = _ConstantsHelper.AppConstants.ShownModesString.map(function (item, index) {
-                return _react2.default.createElement(
-                    'li',
-                    { onClick: function onClick() {
-                            return actions.SetMode(item);
-                        } },
-                    _react2.default.createElement(
-                        'a',
-                        { href: '#', style: { color: item === shownMode ? "red" : "black" } },
-                        item
-                    )
-                );
+                return _react2.default.createElement('input', { type: 'button', value: item, style: { color: item === shownMode ? "red" : "black" }, onClick: function onClick() {
+                        return actions.SetMode(item);
+                    } });
             });
             return _react2.default.createElement(
-                'ul',
+                'div',
                 null,
                 shownModes
             );
@@ -8459,7 +8451,7 @@ var TodoList = function (_React$Component) {
                 actions = _props.actions;
 
             var todoList = state.todoItems.map(function (item, index) {
-                if (state.shownMode === "Todo" && item.isDone || state.shownMode === "Done" && !item.isDone) {
+                if (state.shownMode === "Show Todo" && item.isDone || state.shownMode === "Show Done" && !item.isDone) {
                     return;
                 }
                 return _react2.default.createElement(
@@ -8470,7 +8462,7 @@ var TodoList = function (_React$Component) {
                         } },
                     _react2.default.createElement(
                         "a",
-                        { href: "#" },
+                        { href: "#", style: { textDecoration: "none", color: "black" } },
                         item.content
                     )
                 );
