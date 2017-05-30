@@ -1,4 +1,6 @@
-﻿If clone these files, you can directly run "npm install" to download the dependencies because the configs are all in package.json.
+﻿Demo url: https://mschuan.github.io/Todo-list-react-redux/dist/index.html
+
+If clone these files, you can directly run "npm install" to download the dependencies because the configs are all in package.json.
 Otherwise, you can create a new folder in your computer and run following commands to re-generate package.json.
 PS: Not all followings are used in todolist example, but they are often used by people. 
 
