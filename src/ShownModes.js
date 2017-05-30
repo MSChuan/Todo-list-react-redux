@@ -5,9 +5,9 @@ class ShownModes extends React.Component {
     render() {
         const { shownMode, actions } = this.props;
         const shownModes = AppConstants.ShownModesString.map((item, index) => {
-            return (<li onClick={() => actions.SetMode(item)}><a href="#" style={{color: item === shownMode ? "red" : "black"}}>{item}</a></li>);
+            return (<input type="button" value={item} style={{color: item === shownMode ? "red" : "black"}} onClick={() => actions.SetMode(item)} />);
         });
-        return <ul>{shownModes}</ul>;
+        return <div>{shownModes}</div>;
     }
 }
 

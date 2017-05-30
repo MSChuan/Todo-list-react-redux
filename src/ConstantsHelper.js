@@ -1,5 +1,5 @@
 const AppConstants = {
-    ShownModesString: ["All", "Todo", "Done"]
+    ShownModesString: ["Show All", "Show Todo", "Show Done"]
 };
 
 const initialState = {
