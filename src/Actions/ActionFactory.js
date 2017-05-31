@@ -1,4 +1,4 @@
-const actionsFactory = {
+const actionFactory = {
     AddItem: (content) => ({
         type: "AddItem",
         content: content
@@ -13,4 +13,4 @@ const actionsFactory = {
     }),
 };
 
-export default actionsFactory;
+export default actionFactory;

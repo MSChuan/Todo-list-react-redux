@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { AppConstants } from './ConstantsHelper';
+import { AppConstants } from '../Helpers/ConstantsHelper';
 
 class ShownModes extends React.Component {
     render() {

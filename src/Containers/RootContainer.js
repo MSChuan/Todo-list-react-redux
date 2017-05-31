@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import ActionFactory from './ActionFactory';
+import actionFactory from '../Actions/ActionFactory';
 import { bindActionCreators } from 'redux';
-import TodoList from './TodoList';
-import ShownModes from './ShownModes';
+import TodoList from '../Components/TodoList';
+import ShownModes from '../Components/ShownModes';
 
 class RootContainer extends React.Component {
     constructor(props) {
@@ -27,7 +27,7 @@ RootContainer.propTypes = {
 };
 
 const buildActionDispatcher = (dispatch) => ({
-    actions: bindActionCreators(ActionFactory, dispatch)
+    actions: bindActionCreators(actionFactory, dispatch)
 });
 
 export default connect(
