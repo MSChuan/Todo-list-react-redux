@@ -4,17 +4,16 @@ import actionFactory from '../Actions/ActionFactory';
 import { bindActionCreators } from 'redux';
 import TodoList from '../Components/TodoList';
 import ShownModes from '../Components/ShownModes';
+import AddTodo from '../Components/AddTodo';
 
 class RootContainer extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
-        let input = '';
         const { state, actions } = this.props;
         return (<div>
-                    <input type="text" ref={(text) => {input = text;}} placeholder={"Todo"} />
-                    <input type="button" onClick={() => actions.AddItem(input.value)} value="Add" />
+                    <AddTodo actions={actions} />
                     <TodoList state={state} actions={actions} />
                     <ShownModes shownMode={state.shownMode} actions={actions} />
                 </div>);
