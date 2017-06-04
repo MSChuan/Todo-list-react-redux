@@ -26,7 +26,7 @@ var config = {
             loader: "babel-loader"
         }, {
             test: /\.(scss|sass|css)$/,  // pack sass and css files
-            loader: ExtractTextPlugin.extract({fallback: "style-loader", use: "css-loader!postcss-loader!sass-loader"})
+            loader: ExtractTextPlugin.extract({fallback: "style-loader", use: "css-loader!sass-loader"})
         }, {
             test: /\.(png|jpg|jpng|eot|ttf)$/, // pack images and fonts
             loader: 'url-loader?limit=8192&name=images/[name].[ext]'
